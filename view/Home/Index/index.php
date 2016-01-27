@@ -46,18 +46,18 @@
       <p><code>msg</code> 是返回的具体信息提示</p>
       <p><code>code</code> 是返回的结果状态，小于或等于 0 都表示失败；只有大于 0 才是成功操作</p>
       <p><code>data</code> 则是具体的信息内容，包括 input 的信息，和 output 的信息</p>
-      <pre>{ 
-  msg: '登陆成功', 
-  code: '1', 
-  data: {
-    input: {
-      'username': 'user1',
-      'email': 'user@domain.com',
+      <pre>{
+  "msg": "登陆成功",
+  "code": "1",
+  "data": {
+    "input": {
+      "username": "user1",
+      "email": "user@domain.com",
       ...
-    }, 
-    output: {
-      'username': 'user1', 
-      'nickname': 'nick',
+    },
+    "output": {
+      "username": "user1",
+      "nickname": "nick"
       ...
     }
   }
