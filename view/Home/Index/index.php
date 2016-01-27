@@ -74,6 +74,7 @@
       <ol>
         <li>必须传送一个 password1 和 password2，并且匹配，即 <code>password1 == password2</code></li>
       </ol>
+      <div style="font-size: 3em">待续...</div>
     </div>
     <script>
         const __ROOT__ = "<?php echo __ROOT__ ?>";
