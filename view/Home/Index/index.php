@@ -68,7 +68,7 @@
     &lt;input type=&quot;submit&quot; value=&quot;submit&quot; class=&quot;btn btn-primary&quot;/&gt;
   &lt;/div&gt;
 &lt;/form&gt;</pre>
-      <p>大部分的平台都支持第三方登录，不过不在本程序涉及范围内。</p>
+      <p class="bg-danger">大部分的平台都支持第三方登录，不过不在本程序涉及范围内。</p>
       <h3>协定</h3>
       <p>为了更好的服务注册步骤，这里制定了一系列的协定来规范注册。</p>
       <ol>
