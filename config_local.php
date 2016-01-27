@@ -4,7 +4,7 @@
     * 本文件将会被 /Common/Conf/config.php 文件引用
     */
     $config = array(
-        'lib_thinkphp' => 'c:/www/_fmk/thinkphp/3.2.3/ThinkPHP.php',
+        'lib_thinkphp' => './thinkphp_3.2.3/ThinkPHP.php',
         
         // database
         'DB_TYPE'   => 'mysql', // 数据库类型
