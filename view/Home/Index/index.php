@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ThinkPHP User</title>
-    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/lib/dotku/dist/css/general-cn.css" rel="stylesheet"/>
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="<?php echo __ROOT__?>/public/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<?php echo __ROOT__?>/public/lib/dotku/dist/css/general-cn.css" rel="stylesheet"/>
+    <script src="<?php echo __ROOT__?>/public/lib/angular/angular.js"></script>
+    <script src="<?php echo __ROOT__?>/public/lib/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo __ROOT__?>/public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
   <body>
     
