@@ -10,7 +10,6 @@
     define('RUNTIME_PATH', 'runtime/');
     define('TMPL_PATH','view/');
     define('APP_DEBUG',True);
-    define('BIND_MODULE','User');
-    define('BIND_CONTROLLER', 'Index');
+    define('BIND_MODULE','Api');
     
-    require_once $config['lib_thinkphp'];
+    require_once $config_local['lib_thinkphp'];

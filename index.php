@@ -11,4 +11,4 @@
     define('TMPL_PATH','view/');
     define('APP_DEBUG',True);
     
-    require_once $config['lib_thinkphp'];
+    require_once $config_local['lib_thinkphp'];
