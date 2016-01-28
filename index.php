@@ -5,10 +5,6 @@
     * $config['lib_thinkphp']       ThinkPHP 的核心文件
     */
     require_once 'config_local.php';
-    
-    define('APP_PATH', 'app/');
-    define('RUNTIME_PATH', 'runtime/');
-    define('TMPL_PATH','view/');
-    define('APP_DEBUG',True);
+    require_once 'define_common.php';
     
     require_once $config_local['lib_thinkphp'];

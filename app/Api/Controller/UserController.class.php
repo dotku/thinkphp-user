@@ -12,10 +12,11 @@ class UserController extends Controller {
     */
     public function index(){
         $this->item = I('path.1');
-        var_dump($item);
+        //var_dump($item);
         
         switch ($_SERVER['REQUEST_METHOD']) {
-            case 'PUT':
+            case 'POST':
+                $this->_post();
                 break;
             case 'PUT':
                 break;
@@ -59,7 +60,7 @@ class UserController extends Controller {
         }
         
         // remove password
-        if (is_array($ouptut['data'])) {
+        if (is_array($output['data']) && !empty($output['data'])) {
             foreach ($output['data'] as $key =>$val) {
                 unset($output['data'][$key]['password']);
             }
@@ -70,13 +71,14 @@ class UserController extends Controller {
         echo json_encode($output, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     }
     // register 
-    private function _register(){
+    public function _post(){
         $model = D('user');
         $input = $_REQUEST;
         $output = array();
         $output['code'] = 0;
         // checking input
         if (!$input['username'] || !$input['password1']) {
+            $output['data']['input'] = $input;
             $output['msg'] = 'password or username is missing';
             $output['code'] = -1;
             echo json_encode($output);
@@ -124,11 +126,11 @@ class UserController extends Controller {
         // login
         $map['username'] = $input['username'];
         $map['password'] = md5($input['password1']);
-        session_destroy();
-        $_SESSION['user'] = $model->where($map)->find();
-        session_unset($_SESSION['password']);
-        if (is_array($_SESSION['user']) && !empty($_SESSION['user'])) {
-            $output['msg'] = 'register successfully, and loged in';
+        
+        $selection = $model->where($map)->select();
+        
+        if ($selection && !empty($selection) && count($selection) == 1) {
+            $output['msg'] = 'register successfully';
             $output['data'] = $_SESSION['user'];
             $output['code'] = 1;
         } else {
@@ -136,6 +138,7 @@ class UserController extends Controller {
             $output['data'] = $model->where($map)->find();
             $output['code'] = -99;
         }
+        
         echo json_encode($output);
         //var_dump($_SESSION['user']);
         //var_dump($map['username']);

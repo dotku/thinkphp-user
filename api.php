@@ -5,11 +5,10 @@
     * $config['lib_thinkphp']       ThinkPHP 的核心文件
     */
     require_once 'config_local.php';
+    require_once 'define_common.php';
     
-    define('APP_PATH', 'app/');
-    define('RUNTIME_PATH', 'runtime/');
-    define('TMPL_PATH','view/');
-    define('APP_DEBUG',True);
     define('BIND_MODULE','Api');
     
     require_once $config_local['lib_thinkphp'];
+    C('URL_CASE_INSENSITIVE', true);
+    var_dump(C('URL_CASE_INSENSITIVE'));

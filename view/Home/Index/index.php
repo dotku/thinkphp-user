@@ -144,7 +144,9 @@
       <h4>注册</h4>
       <p>最基础的注册信息有 用户名 和 密码，两组信息，其他的信息都可以通过自定义字段方式来实现。</p>
       <div class="clearfix">
-        <form class="registerForm panel panel-default col-md-4" method="post">
+        <form class="registerForm panel panel-default col-md-6" method="post">
+            <div class="panel-heading"><legend>Register</legend></div>
+            <div class="panel-body">
           <div class="form-group">
             <label for="username">username</label>
             <input name="username" placeholder="username" 
@@ -165,7 +167,41 @@
           <div class="form-group">
             <input type="submit" value="submit" class="btn btn-primary"/>
           </div>
+          </div>
         </form>
+        <script>
+            $(".registerForm").on('submit', function(e){
+                // 阻止默认的提交操作
+                e.preventDefault();
+                
+                // 变量声名
+                var apiURL = '<?php echo __ROOT__; ?>/api.php/Useraccess';
+                var type = 'POST';
+                var data = $(this).serializeArray();
+                // console.log(data);
+                
+                if (verifyForm()) {
+                    // ajax 提交
+                    
+                    var ajax = $.ajax({ url: apiURL, dataType: 'json', type: type, data: data});
+                    ajax.done(function(rsp){
+                        console.log(rsp);
+                    });
+                    
+                } else {
+                    alert('Verify Failed!');
+                }
+            });
+            function verifyForm(){
+              var password1 = $('.registerForm input[name=password1]').val();
+              var password2 = $('.registerForm input[name=password2]').val();
+              if (password1 == password2) {
+                  return true;
+              } else {
+                  return false;
+              }
+          }
+        </script>
       </div>
       <p>表格代码如下: </p>
       <pre>
@@ -218,39 +254,7 @@
     </div>
     <script>
         const __ROOT__ = "<?php echo __ROOT__ ?>";
-      $(".registerForm").submit(function(event){
-          // cancels the form submission
-          event.preventDefault();
-          if (verifyForm()) {
-              submitForm();
-          } else {
-              alert('Verify Failed!');
-          }
-      });
-      function verifyForm(){
-          var password1 = $('.registerForm input[name=password1]').val();
-          var password2 = $('.registerForm input[name=password2]').val();
-          if (password1 == password2) {
-              return true;
-          } else {
-              return false;
-          }
-      }
-      function submitForm(){
-          // Initiate Variables With Form Content
-          var data = {};
-          $(".registerForm").serializeArray().map(function(x){data[x.name] = x.value;}); 
-       
-          $.ajax({
-              type: "POST",
-              url: __ROOT__ + "/user.php/register",
-              data: data,
-              success : function(rsp){
-                  console.log('data', data);
-                  console.log('rsp', rsp);
-              }
-          });
-      }
+      
     </script>
   </body>
 </html>
