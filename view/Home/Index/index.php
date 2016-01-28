@@ -175,7 +175,7 @@
                 e.preventDefault();
                 
                 // 变量声名
-                var apiURL = '<?php echo __ROOT__; ?>/api.php/Useraccess';
+                var apiURL = '<?php echo __ROOT__; ?>/api.php/user';
                 var type = 'POST';
                 var data = $(this).serializeArray();
                 // console.log(data);

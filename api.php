@@ -10,5 +10,3 @@
     define('BIND_MODULE','Api');
     
     require_once $config_local['lib_thinkphp'];
-    C('URL_CASE_INSENSITIVE', true);
-    var_dump(C('URL_CASE_INSENSITIVE'));
